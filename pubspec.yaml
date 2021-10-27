@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/images/feet.png
     - assets/images/nike_logo.png
+    - assets/images/nike_logo_lemon.png
     - assets/images/shoes1_1.png
     - assets/images/shoes1_2.png
     - assets/images/shoes1_3.png
