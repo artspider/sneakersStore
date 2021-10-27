@@ -44,8 +44,8 @@ final nikeShoes = <Shoes>[
 
   Shoes(
     model: 'AIR MAX 270 GOLD',
-    oldPrice: 399,
-    currentPrice: 299,
+    oldPrice: 260,
+    currentPrice: 150,
     images: [
       'assets/images/shoes3_1.png',
       'assets/images/shoes3_2.png',

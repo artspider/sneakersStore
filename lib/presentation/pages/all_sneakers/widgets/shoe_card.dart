@@ -25,9 +25,9 @@ class ShoeCard extends StatelessWidget {
         children: [
           ModelNumber(modelNumber: shoe.modelNumber),
           ShoeImage(modelImage: shoe.images.first,),
-          ModelName(),
-          ModelPrice(),
-          CardIcons(),
+          ModelName(modelName: shoe.model,),
+          const ModelPrice(),
+          const CardIcons(),
         ],
       ),
     );

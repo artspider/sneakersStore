@@ -23,13 +23,11 @@ class AllSneakers extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView(
-              children: [
-                ShoeCard(shoe: nikeShoes[0]),
-                ShoeCard(shoe: nikeShoes[1]),
-                ShoeCard(shoe: nikeShoes[2]),
-                ShoeCard(shoe: nikeShoes[3]),
-              ],
+            child: ListView.builder(
+              itemCount: nikeShoes.length,
+              itemBuilder: (context, index ) {
+                return ShoeCard(shoe: nikeShoes[index]);
+              },
             ),
           ),
         ],
@@ -37,3 +35,14 @@ class AllSneakers extends StatelessWidget {
     );
   }
 }
+
+
+/* ListView(
+              children: [
+                ShoeCard(shoe: nikeShoes[0]),
+                ShoeCard(shoe: nikeShoes[1]),
+                ShoeCard(shoe: nikeShoes[2]),
+                ShoeCard(shoe: nikeShoes[3]),
+              ],
+            ),
+            */
