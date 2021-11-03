@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nike_store/presentation/pages/my_home/my_home.dart';
+import 'package:nike_store/presentation/pages/join_us/join_us.dart';
+import 'package:nike_store/presentation/pages/login_form/login_form.dart';
 
 class OnBoard extends StatelessWidget {
   const OnBoard({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class OnBoard extends StatelessWidget {
             width: 250,
             height: 250,
           ),
-          Text(
+          const Text(
             'Whereever you are.',
             style: TextStyle(
               //color: Color(0xFF979797),
@@ -33,7 +34,7 @@ class OnBoard extends StatelessWidget {
               height: 1,
             ),
           ),
-          Text(
+          const Text(
             "Wherever you want to go.",
             style: TextStyle(
                 //color: Color(0xFF979797),
@@ -43,7 +44,7 @@ class OnBoard extends StatelessWidget {
                 letterSpacing: .8,
                 height: 1.5),
           ),
-          Text(
+          const Text(
             "Come run with us.",
             style: TextStyle(
               //color: Color(0xFF979797),
@@ -54,16 +55,16 @@ class OnBoard extends StatelessWidget {
               height: 1.5,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 100,
           ),
           TextButton(
-            style: TextButton.styleFrom(minimumSize: Size(300, 5)),
+            style: TextButton.styleFrom(minimumSize: const Size(300, 5)),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => MyHome()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const LoginForm()));
             },
-            child: Text(
+            child: const Text(
               "LOGIN",
               style: TextStyle(
                 color: Colors.black54,
@@ -73,8 +74,11 @@ class OnBoard extends StatelessWidget {
             ),
           ),
           OutlinedButton(
-            onPressed: () {},
-            child: Text(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const JoinUs()));
+            },
+            child: const Text(
               "JOIN NOW",
               style: TextStyle(
                   color: Colors.black45,
@@ -84,10 +88,10 @@ class OnBoard extends StatelessWidget {
             ),
             style: OutlinedButton.styleFrom(
                 primary: Colors.black45,
-                backgroundColor: Color(0xFFb3e8e2),
-                padding: EdgeInsets.all(25),
+                backgroundColor: const Color(0xFFb3e8e2),
+                padding: const EdgeInsets.all(25),
                 elevation: 7,
-                minimumSize: Size(300, 10)),
+                minimumSize: const Size(300, 10)),
           ),
         ]),
       ),
