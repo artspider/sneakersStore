@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PasswordInput extends StatelessWidget {
+class PasswordInput extends StatefulWidget {
   final String password;
   final Function(String) onPasswordChange;
 
@@ -9,7 +9,13 @@ class PasswordInput extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  State<PasswordInput> createState() => _PasswordInputState();
+}
+
+class _PasswordInputState extends State<PasswordInput> {
+  bool isObscure = true;
+  @override
+  Widget build(BuildContext context) {    
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: Theme(
@@ -21,7 +27,7 @@ class PasswordInput extends StatelessWidget {
           child: TextFormField(
             maxLength: 40,
             onChanged: (value) {
-              onPasswordChange(value);
+              widget.onPasswordChange(value);
             },
             validator: (value) {
               if (value!.length < 4) {
@@ -29,16 +35,16 @@ class PasswordInput extends StatelessWidget {
               }
               return null;
             },
-            obscureText: true,
-            decoration: const InputDecoration(
+            obscureText: isObscure,
+            decoration: InputDecoration(
               fillColor: Colors.white,
               filled: true,
               counterText: "",
-              contentPadding: EdgeInsets.symmetric(
+              contentPadding: const EdgeInsets.symmetric(
                 vertical: 20.0,
                 horizontal: 10.0,
               ),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                     color: Color.fromARGB(184, 194, 194, 255),
                     width: 3.0,
@@ -47,7 +53,7 @@ class PasswordInput extends StatelessWidget {
                   Radius.circular(15.0),
                 ),
               ),
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                     color: Color.fromARGB(184, 194, 194, 255),
                     width: 3.0,
@@ -56,11 +62,25 @@ class PasswordInput extends StatelessWidget {
                   Radius.circular(15.0),
                 ),
               ),
-              prefixIcon: Icon(
+              prefixIcon: const Icon(
                 Icons.lock,
               ),
+              suffixIcon: Padding(
+                padding: const EdgeInsetsDirectional.only(end: 12.0),
+                child: TextButton(
+                  onPressed: () {
+                    print("cambiar valor obscure");
+                    setState(() {
+                      isObscure = !isObscure;
+                    });
+                  },
+                  child: const Icon(
+                    Icons.remove_red_eye_outlined,
+                  ),
+                ),
+              ),
               hintText: 'Password',
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 fontSize: 14.0,
                 color: Colors.black38,
               ),
